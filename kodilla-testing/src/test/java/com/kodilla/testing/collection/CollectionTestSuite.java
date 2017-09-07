@@ -5,8 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class CollectionTestSuite {
     @Before
@@ -22,18 +21,23 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList() {
         OddNumberExterminator oddNumberExterminator = new OddNumberExterminator();
-        ArrayList<Integer> emptyList = new ArrayList<>();
-        ArrayList<Integer> evenNumbers = oddNumberExterminator.exterminate(emptyList);
-        Assert.assertTrue(oddNumberExist(evenNumbers));
+        ArrayList<Integer> testList = new ArrayList<>();
+        List<Integer> evenNumbers = oddNumberExterminator.exterminate(testList);
+        Assert.assertTrue(evenNumbers.size() == 0);
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
         OddNumberExterminator oddNumberExterminator = new OddNumberExterminator();
-        ArrayList<Integer> evenNumbers = oddNumberExterminator.exterminate(generateNumbers());
-        Assert.assertTrue(oddNumberExist(evenNumbers));
+        ArrayList<Integer> testList = new ArrayList<>();
+        testList.add(1);
+        testList.add(2);
+        testList.add(3);
+        List<Integer> evenNumbers = oddNumberExterminator.exterminate(testList);
+        Assert.assertTrue(evenNumbers.size() == 1);
+        Assert.assertTrue(evenNumbers.get(0) == 2);
     }
-
+/*
     private ArrayList<Integer> generateNumbers() {
         ArrayList<Integer> randomList = new ArrayList<>();
         Random random = new Random();
@@ -43,6 +47,7 @@ public class CollectionTestSuite {
         return randomList;
     }
 
+
     private boolean oddNumberExist(ArrayList<Integer> items) {
         for (int i = 0; i < items.size(); i++) {
             if ((items.get(i) % 2 != 0)) {
@@ -51,4 +56,5 @@ public class CollectionTestSuite {
         }
         return true;
     }
+*/
 }

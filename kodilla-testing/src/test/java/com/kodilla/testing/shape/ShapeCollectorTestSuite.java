@@ -53,6 +53,11 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
 
+        Assert.assertEquals("Circle", shapeCollector.getFigure(0).getShapeName());
+
+        Assert.assertEquals("Square", shapeCollector.getFigure(1).getShapeName());
+        Assert.assertTrue(shapeCollector.getFigure(1).getField() == 4);
+
         Assert.assertEquals("Triangle", shapeCollector.getFigure(2).getShapeName());
         Assert.assertTrue(shapeCollector.getFigure(2).getField() == 20);
     }

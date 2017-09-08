@@ -37,24 +37,4 @@ public class CollectionTestSuite {
         Assert.assertTrue(evenNumbers.size() == 1);
         Assert.assertTrue(evenNumbers.get(0) == 2);
     }
-/*
-    private ArrayList<Integer> generateNumbers() {
-        ArrayList<Integer> randomList = new ArrayList<>();
-        Random random = new Random();
-        for (int i = 0; i < 100; i++) {
-            randomList.add(random.nextInt(100));
-        }
-        return randomList;
-    }
-
-
-    private boolean oddNumberExist(ArrayList<Integer> items) {
-        for (int i = 0; i < items.size(); i++) {
-            if ((items.get(i) % 2 != 0)) {
-                return false;
-            }
-        }
-        return true;
-    }
-*/
 }

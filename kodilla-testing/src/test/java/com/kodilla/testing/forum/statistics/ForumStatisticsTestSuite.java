@@ -84,7 +84,9 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.postsCount()).thenReturn(posts);
         forumStatistics.calculateAdvStatistics(statisticsMock);
-        Assert.assertTrue(forumStatistics.getAverageCommentsByPost() < 1);
+//      Assert.assertTrue(forumStatistics.getAverageCommentsByPost() < 1);
+        Assert.assertTrue(forumStatistics.getCommentsQuantity() < forumStatistics.getPostsQuantity());
+
 
         //Case 2: comments > posts
         posts = 20;
@@ -92,7 +94,8 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.postsCount()).thenReturn(posts);
         forumStatistics.calculateAdvStatistics(statisticsMock);
-        Assert.assertTrue(forumStatistics.getAverageCommentsByPost() > 1);
+//      Assert.assertTrue(forumStatistics.getAverageCommentsByPost() > 1);
+        Assert.assertTrue(forumStatistics.getCommentsQuantity() > forumStatistics.getPostsQuantity());
 
         //The boy scout rule Case 3: comments == posts
         posts = 5;
@@ -100,6 +103,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(comments);
         when(statisticsMock.postsCount()).thenReturn(posts);
         forumStatistics.calculateAdvStatistics(statisticsMock);
-        Assert.assertTrue(forumStatistics.getAverageCommentsByPost() == 1);
+//      Assert.assertTrue(forumStatistics.getAverageCommentsByPost() == 1);
+        Assert.assertTrue(forumStatistics.getCommentsQuantity() == forumStatistics.getPostsQuantity());
     }
 }

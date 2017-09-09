@@ -20,6 +20,14 @@ public class ForumStatistics {
         return averageCommentsByPost;
     }
 
+    public int getPostsQuantity() {
+        return postsQuantity;
+    }
+
+    public int getCommentsQuantity() {
+        return commentsQuantity;
+    }
+
     public void calculateAdvStatistics(Statistics statistics) {
         usersQuantity = statistics.userName().size();
         postsQuantity = statistics.postsCount();

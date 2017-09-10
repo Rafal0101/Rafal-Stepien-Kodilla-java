@@ -77,8 +77,8 @@ public class ForumStatisticsTestSuite {
     public void testAverageCommentsByPost() {
         Statistics statisticsMock = mock(Statistics.class);
         ForumStatistics forumStatistics = new ForumStatistics();
-        int posts = 11;
-        int comments = 10;
+        int posts = 10;
+        int comments = 11;
 
         //Case 1: comments < posts
         when(statisticsMock.commentsCount()).thenReturn(comments);

@@ -1,5 +1,6 @@
 package com.kodilla.testing.library;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,19 +12,24 @@ import static org.mockito.Mockito.*;
 
 public class BookDirectoryTestSuite {
     // Exercise 6.6 my tests
+    private static LibraryDatabase libraryDatabaseMock;
+    private static BookLibrary bookLibrary;
+
+    @Before
+    public void initializeObjects() {
+        //Given
+        libraryDatabaseMock = mock(LibraryDatabase.class);
+        bookLibrary = new BookLibrary(libraryDatabaseMock);
+    }
+
     @Test
     public void testListBookInHandsOf0Books() {
-        //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-
         // next 2 lines are example answer from LibraryDatabase interface
         List<Book> resultListOfBooks = new ArrayList<>();
         LibraryUser libraryUser = new LibraryUser("John", "Rambo", "123456789");
 
-        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBooks);
-
         //When
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBooks);
         List<Book> theListOfBook = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Than
@@ -32,18 +38,13 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBookInHandsOf1Books() {
-        //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-
-        // next 3 lines are example answer from LibraryDatabase interface
+       // next 3 lines are example answer from LibraryDatabase interface
         List<Book> resultListOfBooks = new ArrayList<>();
         resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
         LibraryUser libraryUser = new LibraryUser("John", "Rambo", "123456789");
 
-        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBooks);
-
         //When
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBooks);
         List<Book> theListOfBook = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Than
@@ -52,10 +53,6 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBookInHandsOf5Books() {
-        //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-
         // next 7 lines are example answer from LibraryDatabase interface
         List<Book> resultListOfBooks = new ArrayList<>();
         resultListOfBooks.add(new Book("Secrets of Alamo", "John Smith", 2008));
@@ -65,9 +62,8 @@ public class BookDirectoryTestSuite {
         resultListOfBooks.add(new Book("Secrets of A", "John S", 2012));
         LibraryUser libraryUser = new LibraryUser("John", "Rambo", "123456789");
 
-        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBooks);
-
         //When
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOfBooks);
         List<Book> theListOfBook = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Than
@@ -76,9 +72,6 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBooksWithConditionsReturnList() {
-        // Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBooks = new ArrayList<Book>();
         Book book1 = new Book("Secrets of Alamo", "John Smith", 2008);
         Book book2 = new Book("Secretaries and Directors", "Dilbert Michigan", 2012);
@@ -88,10 +81,10 @@ public class BookDirectoryTestSuite {
         resultListOfBooks.add(book2);
         resultListOfBooks.add(book3);
         resultListOfBooks.add(book4);
-        when(libraryDatabaseMock.listBooksWithCondition("Secret"))
-                .thenReturn(resultListOfBooks);
 
         // When
+        when(libraryDatabaseMock.listBooksWithCondition("Secret"))
+                .thenReturn(resultListOfBooks);
         List<Book> theListOfBooks = bookLibrary.listBooksWithCondition("Secret");
 
         // Then
@@ -101,11 +94,11 @@ public class BookDirectoryTestSuite {
     @Test
     public void testListBooksWithConditionMoreThan20() {
         // Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf0Books = new ArrayList<Book>();
         List<Book> resultListOf15Books = generateListOfNBooks(15);
         List<Book> resultListOf40Books = generateListOfNBooks(40);
+
+        // When
         when(libraryDatabaseMock.listBooksWithCondition(anyString()))
                 .thenReturn(resultListOf15Books);
         when(libraryDatabaseMock.listBooksWithCondition("ZeroBooks"))
@@ -113,12 +106,11 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksWithCondition("FourtyBooks"))
                 .thenReturn(resultListOf40Books);
 
-        // When
         List<Book> theListOfBooks0 = bookLibrary.listBooksWithCondition("ZeroBooks");
         List<Book> theListOfBooks15 = bookLibrary.listBooksWithCondition("Any title");
         List<Book> theListOfBooks40 = bookLibrary.listBooksWithCondition("FourtyBooks");
-        // Then
 
+        // Then
         assertEquals(0, theListOfBooks0.size());
         assertEquals(15, theListOfBooks15.size());
         assertEquals(0, theListOfBooks40.size());
@@ -127,13 +119,12 @@ public class BookDirectoryTestSuite {
     @Test
     public void testListBooksWithConditionFragmentShorterThan3() {
         // Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf10Books = generateListOfNBooks(10);
+
+        // When
         when(libraryDatabaseMock.listBooksWithCondition(anyString()))
                 .thenReturn(resultListOf10Books);
 
-        // When
         List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition("An");
 
         // Then

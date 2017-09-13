@@ -37,7 +37,7 @@ public class ForumStatistics {
             averageCommentsByUser = commentsQuantity / usersQuantity;
         }
         if (postsQuantity > 0) {
-            averageCommentsByPost = commentsQuantity / postsQuantity;
+            averageCommentsByPost = (double) commentsQuantity / (double) postsQuantity;
         }
     }
 }

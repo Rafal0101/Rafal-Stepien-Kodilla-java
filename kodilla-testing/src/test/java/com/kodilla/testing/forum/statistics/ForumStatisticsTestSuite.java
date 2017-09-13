@@ -114,7 +114,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(posts);
         forumStatistics.calculateAdvStatistics(statisticsMock);
 
-        //      Assert.assertTrue(forumStatistics.getAverageCommentsByPost() < 1);
+        //Assert.assertTrue(forumStatistics.getAverageCommentsByPost() < 1);
         Assert.assertTrue(forumStatistics.getCommentsQuantity() < forumStatistics.getPostsQuantity());
 
     }
@@ -127,7 +127,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(posts);
         forumStatistics.calculateAdvStatistics(statisticsMock);
 
-        //      Assert.assertTrue(forumStatistics.getAverageCommentsByPost() > 1);
+        // Assert.assertTrue(forumStatistics.getAverageCommentsByPost() > 1);
         Assert.assertTrue(forumStatistics.getCommentsQuantity() > forumStatistics.getPostsQuantity());
     }
 

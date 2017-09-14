@@ -5,10 +5,19 @@ import java.time.LocalDate;
 public final class ForumUser {
     private final int id;
     private final String userName;
-    private final char sex;
+    private final Sex sex;
     private final LocalDate birthDate;
     private final int postsQuantity;
 
+    public ForumUser(final int id, final String userName, final Sex sex, final LocalDate birthDate, final int postsQuantity) {
+        this.id = id;
+        this.userName = userName;
+        this.sex = sex;
+        this.birthDate = birthDate;
+        this.postsQuantity = postsQuantity;
+    }
+
+    /*
     public ForumUser(final int id, final String userName, final char sex, final LocalDate birthDate, final int postsQuantity) {
         this.id = id;
         this.userName = userName;
@@ -16,6 +25,7 @@ public final class ForumUser {
         this.birthDate = birthDate;
         this.postsQuantity = postsQuantity;
     }
+*/
 
     public int getId() {
         return id;
@@ -25,7 +35,7 @@ public final class ForumUser {
         return userName;
     }
 
-    public char getSex() {
+    public Sex getSex() {
         return sex;
     }
 

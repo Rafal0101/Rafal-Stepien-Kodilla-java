@@ -3,6 +3,7 @@ package com.kodilla.stream.world;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class Continent {
     private final Set<Country> countriesOfContinent = new HashSet<>();
@@ -11,11 +12,10 @@ public final class Continent {
         countriesOfContinent.add(country);
     }
 
-    public BigDecimal getContinentPopulation() {
-//        BigDecimal continentPopulation = countriesOfContinent.stream()
- //               .map(country -> country.getPeopleQuantity())
-
-        return null;
+    public Set<BigDecimal> getContinentPopulation() {
+        return countriesOfContinent.stream()
+                .map(country -> country.getPeopleQuantity())
+                .collect(Collectors.toSet());
     }
 
 }

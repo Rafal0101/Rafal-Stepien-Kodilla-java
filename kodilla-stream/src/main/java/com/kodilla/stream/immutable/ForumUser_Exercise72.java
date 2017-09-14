@@ -9,11 +9,11 @@ Spraw, aby utworzona klasa była niemutowalna poprzez odpowiednie użycie słowa
 Upewnij się, że wszystkie pola klasy są oznaczone jako private
 */
 
-public final class ForumUser {
+public final class ForumUser_Exercise72 {
     private final String userName;
     private final String realName;
 
-    public ForumUser(final String userName, final String realName) {
+    public ForumUser_Exercise72(final String userName, final String realName) {
         this.userName = userName;
         this.realName = realName;
     }

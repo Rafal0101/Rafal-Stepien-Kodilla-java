@@ -7,17 +7,15 @@ import java.util.Set;
 public final class World {
     private final Set<Continent> continentsOfWorld = new HashSet<>();
 
-    public void addContinent (Continent continent) {
+    public void addContinent(Continent continent) {
         continentsOfWorld.add(continent);
-    }
-    public void removeContinent (Continent continent) {
-        continentsOfWorld.remove(continent);
     }
 
     public BigDecimal getPeopleQuantity() {
-   //     BigDecimal peopleQuantity = continentsOfWorld.stream()
-    //            .flatMap(continent -> continent.)
-    //    return peopleQuantity;
-        return null;
+        BigDecimal peopleQuantity = continentsOfWorld.stream()
+                .flatMap(continent -> continent.getContinentPopulation().stream())
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+
+        return peopleQuantity;
     }
 }

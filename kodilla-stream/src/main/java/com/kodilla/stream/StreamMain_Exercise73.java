@@ -46,6 +46,5 @@ public class StreamMain_Exercise73 {
         theResultMapOfForumUsers.entrySet().stream()
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
-
     }
 }

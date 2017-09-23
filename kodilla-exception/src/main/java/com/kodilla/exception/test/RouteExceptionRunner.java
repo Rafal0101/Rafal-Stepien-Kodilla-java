@@ -1,11 +1,13 @@
 package com.kodilla.exception.test;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
 public class RouteExceptionRunner {
-    private static void findFlight(Flight flight) throws RouteNotFoundException {
+    private static Map<String, Boolean> findFlight(Flight flight) throws RouteNotFoundException {
         Map<String, Boolean> availableAirports = new HashMap<>();
 
         availableAirports.put("New York", false);
@@ -16,6 +18,7 @@ public class RouteExceptionRunner {
                 || (availableAirports.containsKey(flight.getArrivalAirport())))) {
             throw new RouteNotFoundException("Flight doesn't exist");
         }
+        return availableAirports;
     }
 
     public static void main(String[] args) {

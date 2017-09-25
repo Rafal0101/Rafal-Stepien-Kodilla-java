@@ -1,6 +1,16 @@
 package com.kodilla.exception.test;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+/*
+* Zadanie: Wiedza o wyjątkach
+Zdanie sprawdzi całą Twoją wiedzę o wyjątkach! Zaczynamy!
+
+Wszystkie klasy twórz wewnątrz pakietucom.kodilla.exception.test
+
+Stwórz swój własny Exception o nazwie RouteNotFoundException.
+Stwórz klasę Flight zawierającą konstruktor, pole: String departureAirport, String arrivalAirport i getter’y.
+Stwórz klasę zawierającą logikę imitującą wyszukiwanie lotów: a) metoda findFilght(Flight flight) b) wewnątrz metody zaimplementuj mapę typu HashMap, której kluczem będzie String przechowujący nazwę lotniska, a wartością Boolean informujący o tym czy można na dane lotnisko polecieć. Przykład: Map<String, Boolean>. c) logika powinna wyszukiwać loty w mapie. Jeżeli dane lotnisko nie będzie istnieć w mapie, należy rzucić wyjątkiem RouteNotFoundException.
+Program należy uruchomić wewnątrz metody main, a następnie obsłużyć możliwe pojawienie się wyjątku.
+*/
 
 import java.time.LocalTime;
 import java.util.HashMap;

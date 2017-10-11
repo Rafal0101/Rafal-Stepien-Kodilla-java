@@ -1,20 +1,15 @@
 package com.kodilla.patterns.singleton;
 
 import org.junit.Assert;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 
 public class LoggerTestSuite {
-    private static Logger logger;
-
-    @BeforeClass
-    public static void newLog() {
-        Logger.getInstance().log("Some information.");
-    }
 
     @Test
     public void testGetLastLog() {
         //Given
+        Logger.getInstance().log("Some information.");
         //When
         String log = Logger.getInstance().getLastLog();
         //Then

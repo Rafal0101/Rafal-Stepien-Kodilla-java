@@ -1,0 +1,19 @@
+package com.kodilla.patterns.patterns.testing.shape;
+
+public class Square implements Shape {
+    private final double side;
+
+    public Square(double side) {
+        this.side = side;
+    }
+
+    @Override
+    public String getShapeName() {
+        return "Square";
+    }
+
+    @Override
+    public double getField() {
+        return (side * side);
+    }
+}

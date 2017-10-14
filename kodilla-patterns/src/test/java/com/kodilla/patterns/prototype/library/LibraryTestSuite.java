@@ -44,6 +44,7 @@ public class LibraryTestSuite {
     public void testShallowClone() {
         //Given
 
+        //When
         //shallow cloning
         Library shallowClonedLibrary = null;
         try {
@@ -53,7 +54,6 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
 
-        //When
         shallowClonedLibrary.getBooks().remove(book5);
         shallowClonedLibrary.getBooks().remove(book4);
         shallowClonedLibrary.getBooks().remove(book3);

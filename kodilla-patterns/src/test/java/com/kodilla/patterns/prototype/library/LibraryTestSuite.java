@@ -1,5 +1,13 @@
 package com.kodilla.patterns.prototype.library;
 
+/*
+Exercise 11.2
+W katalogu src/test/java utwórz pakiet com.kodilla.patterns.prototype.library, a w nim zestaw testów LibraryTestSuite
+zawierający test testGetBooks(). W teście stwórz obiekt biblioteki oraz kilka obiektów książek i dodaj je do księgozbioru.
+Zmodyfikuj klasę Library tak, aby była zgodna ze wzorcem Prototype
+Zmodyfikuj test testGetBooks() w taki sposób, aby prezentował działanie shallowCopy() oraz deepCopy()
+ */
+
 import org.junit.Assert;
 import org.junit.Test;
 

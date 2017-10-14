@@ -1,5 +1,6 @@
 package com.kodilla.patterns.patterns.spring.forum;
 /*
+Exercise 10.1
 Zadanie: Bean ForumUser
 
 Celem zadania jest stworzenie w Kontenerze Beana klasy ForumUser i jego sprawdzenie w teście. Aby zrealizować zadanie:

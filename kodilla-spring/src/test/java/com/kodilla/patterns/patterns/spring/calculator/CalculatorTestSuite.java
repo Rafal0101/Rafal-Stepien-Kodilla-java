@@ -1,6 +1,7 @@
 package com.kodilla.patterns.patterns.spring.calculator;
 
 /*
+Exercise 10.2
 Zadanie: Kalkulator z wyświetlaczem
 Celem zadania jest napisanie klasy reprezentującej kalkulator. Kalkulator będzie wykonywał 4 podstawowe działania.
 Do prezentowania wyników będzie używał osobnej klasy reprezentującej wyświetlacz. Aby zrealizować zadanie:

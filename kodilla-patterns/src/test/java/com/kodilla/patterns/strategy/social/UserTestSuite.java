@@ -38,9 +38,6 @@ public class UserTestSuite {
         String annaPublish = anna.socialPublisher.share();
         String johnPublish = john.socialPublisher.share();
         String katePublish = kate.socialPublisher.share();
-        System.out.println(annaPublish);
-        System.out.println(johnPublish);
-        System.out.println(katePublish);
 
         //Then
         Assert.assertEquals("Facebook publisher!", annaPublish);
@@ -55,10 +52,8 @@ public class UserTestSuite {
 
         //When
         String katePublish = kate.socialPublisher.share();
-        System.out.println(katePublish);
         kate.setSocialPublisher(new FacebookPublisher());
         katePublish = kate.socialPublisher.share();
-        System.out.println(katePublish);
 
         //Then
         Assert.assertEquals("Facebook publisher!", katePublish);

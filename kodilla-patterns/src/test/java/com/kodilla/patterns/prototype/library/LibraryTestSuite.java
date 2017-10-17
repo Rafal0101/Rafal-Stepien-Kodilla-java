@@ -59,9 +59,6 @@ public class LibraryTestSuite {
         shallowClonedLibrary.getBooks().remove(book3);
 
         //Then
-        System.out.println(library);
-        System.out.println(shallowClonedLibrary);
-
         Assert.assertEquals(2, library.getBooks().size());
         Assert.assertEquals(2, shallowClonedLibrary.getBooks().size());
     }
@@ -81,8 +78,6 @@ public class LibraryTestSuite {
         }
 
         //Then
-        System.out.println(library);
-        System.out.println(deepClonedLibrary);
         Assert.assertEquals(5, library.getBooks().size());
         Assert.assertEquals(5, deepClonedLibrary.getBooks().size());
     }

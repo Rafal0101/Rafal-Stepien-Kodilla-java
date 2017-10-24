@@ -64,7 +64,7 @@ public class DbManagerTestSuite {
 
         //When
         String sqlQuery = String.join(" ",
-                "SELECT U.ID, U.FIRSTNAME, U.LASTNAME, COUNT(*) AS TASKS"
+                "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS TASKS"
                 , "FROM USERS U, TASKS T"
                 , "WHERE U.ID = T.USER_ID_ASSIGNEDTO"
                 , "GROUP BY T.USER_ID_ASSIGNEDTO"

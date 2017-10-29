@@ -5,6 +5,12 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesFindByPatternStartsWith",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE :COMPANY_NAME_PATTERN",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

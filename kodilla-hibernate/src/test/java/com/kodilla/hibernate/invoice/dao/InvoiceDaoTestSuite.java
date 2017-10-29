@@ -42,6 +42,9 @@ public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
 
+    @Autowired
+    ProductDao productDao;
+
     @Test
     public void testInvoiceDaoSave() {
         //Given
@@ -56,7 +59,13 @@ public class InvoiceDaoTestSuite {
 
         Invoice invoice = new Invoice("One");
 
+        //3 new lines
+        productDao.save(product1);
+        productDao.save(product2);
+        productDao.save(product3);
+
         //Should set PRODUCT_ID in ITEM table but doesn't work...
+        //errata - now it's working
         item1.setProductList(product1);
         item2.setProductList(product2);
         item3.setProductList(product3);
@@ -74,6 +83,11 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(item3);
         invoice.getItems().add(item4);
 
+        //4 new lines
+        product1.getItems().add(item1);
+        product1.getItems().add(item4);
+        product2.getItems().add(item2);
+        product3.getItems().add(item3);
 
         //When
         invoiceDao.save(invoice);

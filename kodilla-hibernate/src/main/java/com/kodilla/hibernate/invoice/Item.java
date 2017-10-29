@@ -68,7 +68,7 @@ public class Item {
         this.id = id;
     }
 
-    public void setProductList(Product product) {
+    public void setProductList(Product productList) {
         this.productList = productList;
     }
 

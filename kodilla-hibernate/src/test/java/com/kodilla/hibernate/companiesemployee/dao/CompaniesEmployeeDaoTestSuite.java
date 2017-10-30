@@ -41,27 +41,15 @@ public class CompaniesEmployeeDaoTestSuite {
     public void testEmployeeFindByLastName() {
         //Given
         Company company = new Company("Microsoft");
-        int id = 0;
+        companyDao.save(company);
+        int id = company.getId();
 
-        /*
-        W trakcie wykonywania tego zadania mialem takie zdarzenie, ze rekord utworzyl sie w bazie danych
-        a wywalila sie funkcja wyszukujaca. Efekt byl taki, ze w bazie danych pozostal rekord.
-        Czy nie powinno sie wiec zastosowac try - catch, tak jak zrobilem to w tym tescie?
-        */
+        //When
+        List<Company> result = companyDao.retrieveCompaniesFindByPatternStartsWith("Mic%");
 
-        try {
-            companyDao.save(company);
-            id = company.getId();
-
-            //When
-            List<Company> result = companyDao.retrieveCompaniesFindByPatternStartsWith("Mic%");
-
-            //Then
-            Assert.assertEquals(1, result.size());
-        } finally {
-            //CleanUp
-            companyDao.delete(id);
-        }
+        //Then
+        Assert.assertEquals(1, result.size());
+        companyDao.delete(id);
     }
 
     @Test

@@ -64,8 +64,7 @@ public class InvoiceDaoTestSuite {
         productDao.save(product2);
         productDao.save(product3);
 
-        //Should set PRODUCT_ID in ITEM table but doesn't work...
-        //errata - now it's working
+        //Set PRODUCT_ID in ITEM table
         item1.setProductList(product1);
         item2.setProductList(product2);
         item3.setProductList(product3);
@@ -92,15 +91,18 @@ public class InvoiceDaoTestSuite {
         //When
         invoiceDao.save(invoice);
         int id = invoice.getId();
+        int id_p1 = product1.getId();
+        int id_p2 = product2.getId();
+        int id_p3 = product3.getId();
 
         //Then
         Assert.assertEquals(4, invoice.getItems().size());
 
         //CleanUp
-        try {
-            //invoiceDao.delete(id);
-        } catch (Exception e) {
+        invoiceDao.delete(id);
+        productDao.delete(id_p1);
+        productDao.delete(id_p2);
+        productDao.delete(id_p3);
 
-        }
     }
 }

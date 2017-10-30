@@ -74,11 +74,10 @@ public class CompaniesEmployeeDaoTestSuite {
         Assert.assertEquals(2, result.size());
 
         //CleanUp
-        try {
-            employeeDao.delete(id1);
-            employeeDao.delete(id2);
-            employeeDao.delete(id3);
-        } catch (Exception e) {
-        }
+
+        employeeDao.delete(id1);
+        employeeDao.delete(id2);
+        employeeDao.delete(id3);
+
     }
 }

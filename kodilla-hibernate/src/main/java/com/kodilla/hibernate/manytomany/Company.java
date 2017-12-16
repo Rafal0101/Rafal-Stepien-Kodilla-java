@@ -13,7 +13,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Company.retrieveCompaniesFindByPattern",
-        query = "FROM Company WHERE name LIKE CONCAT(CONCAT('%', :COMPANY_PATTERN), '%')"
+        query = "FROM Company WHERE name LIKE :COMPANY_PATTERN"
 )
 
 @Entity

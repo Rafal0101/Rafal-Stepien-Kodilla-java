@@ -13,4 +13,9 @@ public final class OrderDto {
     public List<ItemDto> getItems() {
         return items;
     }
+
+    @Override
+    public String toString() {
+        return "{" + items.size() + "}";
+    }
 }

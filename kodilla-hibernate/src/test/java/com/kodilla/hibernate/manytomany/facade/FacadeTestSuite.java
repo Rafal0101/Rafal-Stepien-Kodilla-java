@@ -67,8 +67,8 @@ public class FacadeTestSuite {
         facade.saveCompany(greyMatter);
 
         //When
-        List<Company> companiesResult = facade.findCompaniesByPattern("Ma");
-        List<Employee> employeesResult = facade.findEmployeesByPattern("Kov");
+        List<Company> companiesResult = facade.findCompaniesByPattern("Mabb");
+        List<Employee> employeesResult = facade.findEmployeesByPattern("Kovbb");
 
         //Then
         assertEquals(3, companiesResult.size());

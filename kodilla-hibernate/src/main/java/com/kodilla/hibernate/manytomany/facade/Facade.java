@@ -20,41 +20,13 @@ public class Facade {
 
     public List<Company> findCompaniesByPattern(final String pattern) {
         List<Company> companiesResult = companyDao.retrieveCompaniesFindByPattern("%" + pattern + "%");
-        if (companiesResult != null) {
-            return companiesResult;
-        } else {
-            return new ArrayList<>();
-        }
+        return companiesResult;
     }
 
     public List<Employee> findEmployeesByPattern(final String pattern) {
         List<Employee> employeesResult = employeeDao.retrieveEmployeesFindByPattern("%" + pattern + "%");
-        if (employeesResult != null) {
-            return employeesResult;
-        } else {
-            return new ArrayList<>();
-        }
+        return employeesResult;
     }
-
-    /*
-    public List<Company> findCompaniesByPattern(final String pattern) throws FacadeProcessingException {
-        List<Company> companiesResult = companyDao.retrieveCompaniesFindByPattern(pattern);
-        if (companiesResult != null) {
-            return companiesResult;
-        } else {
-            throw new FacadeProcessingException(FacadeProcessingException.ERR_COMPANY_NOT_FOUND);
-        }
-    }
-
-    public List<Employee> findEmployeesByPattern(final String pattern) throws FacadeProcessingException {
-        List<Employee> employeesResult = employeeDao.retrieveEmployeesFindByPattern(pattern);
-        if (employeesResult != null) {
-            return employeesResult;
-        } else {
-            throw new FacadeProcessingException(FacadeProcessingException.ERR_EMPLOYEE_NOT_FOUND);
-        }
-    }
-*/
 
     public void deleteCompany(Company company) {
         companyDao.delete(company);

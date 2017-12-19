@@ -1,5 +1,13 @@
 package com.kodilla.patterns2.facade.aop;
 
+/*
+Exercise 20.3
+Zadanie: Dodajemy logowanie żądań do fasady
+W submodule 20.1 projektowaliśmy fasadę. Dopisz do niej aspekty wykonujące zapisy do logów każdego wywołania
+metody processOrder(). Aby dodać aspekt do klasy OrderFacade musisz usunąć słowo final z jej deklaracji - nie można
+tworzyć aspektów dla klas, z których zablokowano dziedziczenie.
+ */
+
 import com.kodilla.patterns2.facade.api.OrderDto;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
